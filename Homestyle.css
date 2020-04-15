@@ -1,0 +1,69 @@
+*
+{
+	padding:0;
+	margin:0;
+	box-sizing:border-box;
+}
+img.logo {
+  width:150px;
+  height:10px;
+  vertical-align:top;
+}
+/*body{
+	background-image: url("Theatre.jpg");
+    background-repeat: no-repeat, repeat;
+    background-color: #cccccc;
+	background-position:center;
+	box-sizing:border-box;
+	font-family:Arial,Helvetica,sans-serif;
+}*/
+.menu-bar{
+	background:blue;
+	text-align:center;
+}
+.menu-bar ul{
+	display:inline-flex;
+	list-style:none;
+	color:blue;
+}
+.menu-bar ul li{
+	width:120px;
+	margin:15px;
+}
+.menu-bar ul li a{
+	text-decoration:none;
+	color:#fff;
+}
+.active, .menu-bar ul li:hover{
+	background:grey;
+	border-radius:3px;
+}
+.sub-menu-1{
+	display:none;   
+}
+.menu-bar ul li:hover.sub-menu-1{
+	display:block;
+	position:absolute;
+	background:grey;
+    margin-top:15px;
+	margin-left:-15px;
+}
+.menu-bar ul li:hover .sub-menu-1 ul{
+	display:block;    
+	margin:10px;
+} 
+.menu-bar ul li:hover .sub-menu-1 ul li{
+	width:150px;
+	padding:10px;
+	border-bottom:1px dotted #fff;
+	background:tranparent;
+	border-radius:0;
+	text-align:left;
+}
+.menu-bar ul li:hover .sub-menu-1 ul li:last-child {
+	border-bottom:none;
+}
+.menu-bar ul li:hover .sub-menu-1 ul li:hover{
+	color:#b2ff00;
+}
+  

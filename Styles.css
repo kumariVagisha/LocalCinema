@@ -1,0 +1,102 @@
+hr{
+	border-top:1px solid grey;
+}
+
+body{
+	font-family: Arial,Helvetica,sans-serif;
+	background-image:url("download.png");
+}
+
+header{
+	background-color:white;
+	padding:30px;
+	margin-top:none;
+}
+img.logo{
+  width: 150px;
+  height: 100px;
+  vertical-align:top;
+}
+	
+}
+h2.Style2{
+	margin-left:560px;
+	color:#00356B;
+	margin-top:100px;
+}
+	
+input[type=text]{
+	float:center;
+	padding:13px;
+	border:1px solid #ccc;
+	font-size:19px;
+	border-radius:4px;
+	height:10px;
+	width:554px;	
+}
+input[type=date]{
+	float:center;
+	padding:13px;
+	border:1px solid #ccc;
+	font-size:19px;
+	border-radius:4px;
+	height:10px;
+	width:554px;	
+}
+
+select{
+	float:center;
+	padding:13px;
+	border:1px solid #ccc;
+	font-size:19px;
+	border-radius:4px;
+	height:10px;
+	width:554px;
+}
+
+textarea{
+	float:center;
+	padding:13px;
+	border:1px solid #ccc;
+	font-size:19px;
+	border-radius:4px;
+	width:554px;	
+}
+input[type="time"]{
+	float:center;
+	padding:13px;
+	border:1px solid #ccc;
+	font-size:19px;
+	border-radius:4px;
+	height:10px;
+	width:554px;
+}
+
+form{
+	margin-top:40px;
+}
+
+h2{
+	margin-left:300px;
+	color:#3BB9FF;
+}
+
+label{
+	margin-left:400px;
+	color:white;
+}
+
+input[type=submit]{
+  background-color: #3BB9FF;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  float:center;
+  display:inline-block;
+}
+
+input[type=submit]:hover{
+  background-color:#24a0ed;
+}

@@ -1,0 +1,35 @@
+<html>
+	<head>
+	
+	</head>
+	
+	<body>
+		<label>Augend</label>
+		<input type="text" id="TxtAugend" required />
+		<label>Addend</label>
+		<input type="text" id="TxtAddend" required />
+		<label>Sum</label>
+		<input type="text" id="TxtSum" readonly />
+		<button id="BtnAdd" onclick="add()">Add</button>
+	</body>
+	
+	<script>
+	
+		function add()
+		{
+			//alert("hello");
+			
+			var a, b, c;
+			
+			a = Number(document.getElementById("TxtAugend").value);
+			b = Number(document.getElementById("TxtAddend").value);
+			
+			c = a + b;
+			
+			document.getElementById("TxtSum").value = c;
+			
+			document.getElementById("BtnAdd").innerHTML = "Done!";
+		}
+		
+	</script>
+</html>

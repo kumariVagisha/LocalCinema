@@ -1,0 +1,51 @@
+body{
+	margin:0;
+	padding:0;
+	font-family:sans-serif;
+	background-color:#ffffff;
+}
+input[type=text][type=password]{
+	float:right;
+	padding:13px;
+	border:1px solid #ccc;
+	font-size:19px;
+	border-radius:4px;
+	height:10px;
+	width:554px;	
+}
+
+button[type=submit]{
+  background-color: #3BB9FF;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  float:center;
+  display:inline-block;
+}
+
+button[type=submit]:hover{
+  background-color:#24a0ed;
+}
+
+/* Split the screen in half */
+.split {
+  height:100%;
+  width:50%;
+  position:fixed;
+  z-index:1;
+  top:0;
+  overflow-x:hidden;
+  padding-top:20px;
+}
+
+ /*Control the left side*/ 
+.left{
+  left:0;
+}
+
+/*Control the right side*/ 
+.right {
+  right:0;
+  }
