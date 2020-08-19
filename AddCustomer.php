@@ -1,60 +1,84 @@
 <!DOCTYPE html>
+
 	<?php
+	
 	//------------- Generate Customer ID-------------
 
         include("Header.php");
+
+		    $cid = null;
 		
-        include("Connect.php");
-
-            $sql ="select C_ID from customer";
-
-            $result = $conn->query($sql);
+		    function GenerateID() 
+			{
 			
-            if($result -> num_rows>0)
-            {
-				//This loop will help us in fetching the last id
-	            while($row=$result->fetch_assoc()) //Associated Array
-	            {
-		            $cid = $row["C_ID"];
-	            }
+			    include("Connect.php");
+			
+                    $sql ="select C_ID from customer";
+
+                    $result = $conn->query($sql);
+			
+                    if($result -> num_rows>0)
+                    {
+					
+				        //This loop will help us in fetching the last id
+				
+	                    while($row=$result->fetch_assoc()) //Associated Array
+	                    {
+		                    $cid = $row["C_ID"];
+	                    }
+		
+	                        $cid = substr($cid,1,3);
 	 
-	                $cid = substr($cid,1,3);
+	                        $cid = $cid + 1;
 	 
-	                $cid = $cid + 1;
-	 
-					if($cid<10)
-						$cid = "C00" . $cid;
-					elseif($cid<100)
-						$cid = "C0" . $cid;
-					else
-						$cid = "C" . $cid;
-            }
+					        if($cid<10)
+						
+						        $cid = "C00" . $cid;
+						
+					        elseif($cid<100)
+					
+						        $cid = "C0" . $cid;
+								
+					        else
+						
+						        $cid = "C" . $cid;
+                    }
  
-            else
-            {
-	            $cid = "C" . "001";
-            }
-?>
+                    else
+                    {
+	                    $cid = "C" . "001";
+                    }
+					
+			    $conn->close();
+			
+			return $cid;
+			
+		    }
+		
+		$cid = GenerateID();
+    ?>
+	
+	
 	<html>
 	
 	    <head>
 		
-		<title> Local Cinema | Add Customer </title>
+		    <title> Local Cinema | Add Customer </title>
 		
-		<style>
+		    <style>
 			
 			    h1.Style1{
 	                margin-left:740px;
-	                color:#00356B;
+	                color:#D4E6F1;
                     margin-top:70px;
 				}	
 	        </style>
 		
 		</head>
 		
-			<body>
+		<body>
 			
-	            <h1 class="Style1">Add Customer</h1>
+	        <h1 class="Style1">Add Customer</h1>
 
 	            <!--Form Design-->
 				
@@ -67,13 +91,13 @@
                                 <label for="C_ID">C_ID </label>
 							</td>
 							<td width=63%>
-                                <input type="text" name="C_ID" placeholder="C_ID" value="<?php echo $cid;?>" readonly>
+                                <input type="text" name="C_ID" id="C_ID" placeholder="C_ID" value="<?php echo $cid;?>" readonly>
                             </td>
 						</tr>
 						
 						<tr>
 						    <td width=37%>
-                                <label for="First Name">First Name</label>
+                                <label for="First_Name">First Name</label>
 							</td>
 							<td width=63%%>
                                 <input type="text" name="First_Name" placeholder="First Name">
@@ -82,7 +106,7 @@
 						
 						<tr>
 						    <td width=37%>
-                                <label for="Last Name">Last Name</label>
+                                <label for="Last_Name">Last Name</label>
 							</td>
 							<td width=63%>
                                 <input type="text" name="Last_Name" placeholder="Last Name">
@@ -91,7 +115,7 @@
 						
 						<tr>
 						    <td width=37%>
-                                <label for="Mobile Number">Mobile Number</label>
+                                <label for="Mobile_Number">Mobile Number</label>
 							</td>
 							<td width=63%>
                                 <input type="text" name="Mobile_Number" placeholder="Mobile Number">
@@ -100,10 +124,10 @@
 						
 						<tr>
 						    <td width=37%>
-                                <label for="Email ID">Email ID</label>
+                                <label for="Email_ID">Email ID</label>
 							</td>
 							<td width=63%>
-                                <input type="text" name="Email_ID" placeholder="Email ID">
+                                <input type="email" name="Email_ID" placeholder="Email ID">
                             </td>
 						</tr>
 						
@@ -121,17 +145,18 @@
                                 <label for="Gender">Gender</label>
                             </td>
                             <td width=63%>							
-                                <input type="radio" name="Gender" value="Male" checked style="color:white;">Male
-                                <input type="radio" name="Gender" value="Female" style="color:white;">Female
+                                <input type="radio" name="Gender" value="Male" checked>Male
+                                <input type="radio" name="Gender" value="Female">Female
                             </td>
 						</tr>
 					
 					</table>
 					
-                    <br><br>					
-                                <input type="submit" value="Cancel" style="margin-left:40%">
+                    <br><br>
+					
+                    <input type="reset" name="Reset" value="Reset" style="margin-left:47%">
 								
-                                <input type="submit" value="Create New Customer" name="submit" style="margin-right:30%">
+                    <input type="submit"  name="Submit"value="Create New Customer">
   
                     
                 </form>
@@ -147,9 +172,9 @@
 
 <?php
 
-if(isset($_POST['submit']))
+if(isset($_POST['Submit']))
 {
-	include ('connect.php');
+	include ('Connect.php');
 	
 	    $cid = $_POST['C_ID'];
 	    $fname = $_POST['First_Name'];
@@ -162,17 +187,24 @@ if(isset($_POST['submit']))
 	    $sql = "INSERT INTO customer(C_ID,First_Name,Last_Name,Mobile_Number,Email_ID,DOB,Gender)VALUES('$cid','$fname','$lname','$MobileNumber','$EmailID','$DOB','$Gender')";
 	
 
-	if ($conn->query($sql) === TRUE) {
+	    if ($conn->query($sql) === TRUE) 
+		{
 		
-		echo "New Customer created successfully";
+		    echo "New Customer created successfully!";
 		
-	} 
+	    } 
 	
-	else {
+	    else 
+		{
 		
-		echo "Error: " . $sql . "<br>" . $conn->error;
-	}
+		    echo "Error: " . $sql . "<br>" . $conn->error;
+	    }
+		
+	    $conn->close();
+	
+	    $cid = GenerateID();
+	
+	    echo "<script>document.getElementById('C_ID').value='$cid';</script>";
 
-	$conn->close();
 }
 ?>
