@@ -1,10 +1,10 @@
 body{
 	margin:0;
 	padding:0;
-	font-family:sans-serif;
+	font-family:Aerial,sans-serif;
 	background-color:#ffffff;
 }
-input[type=text][type=password]{
+/*input[type=text],[type=password]{
 	float:right;
 	padding:13px;
 	border:1px solid #ccc;
@@ -12,21 +12,35 @@ input[type=text][type=password]{
 	border-radius:4px;
 	height:10px;
 	width:554px;	
-}
+}*/
 
 button[type=submit]{
-  background-color: #3BB9FF;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
+  background-color:#3BB9FF;
+  color:white;
+  padding:12px 20px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
   float:center;
   display:inline-block;
 }
 
 button[type=submit]:hover{
   background-color:#24a0ed;
+}
+
+.input-group {
+    margin:50px 0px 10px 0px;
+}
+
+.input-group input {
+	float:right;
+	padding:13px;
+	border:1px solid #ccc;
+	font-size:19px;
+	border-radius:4px;
+	height:10px;
+	width:554px;
 }
 
 /* Split the screen in half */

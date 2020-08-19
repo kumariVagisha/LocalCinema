@@ -1,11 +1,8 @@
 <?php
-include("Table.php");
+include("TableHeader.php");
 ?>
-
 <html>
 <head>
-	
-
 	<style>
 		table {
 			border-collapse: collapse;
@@ -20,13 +17,13 @@ include("Table.php");
 		tr:nth-child(even){background-color: #f2f2f2}
 
 		th {
-			background-color:#939D79;
+			background-color:#505050;
 			color: white;
 		}
 	</style>
 </head>
 <body>
-	<h2>Employee List</h2><br>
+	<h2>Employee's List</h2><br>
 	<input type="button" value="Home" id="btn" onclick="window.location.href='http://localhost:85/Homepage1.php'">
 
 	<table>
@@ -40,7 +37,7 @@ include("Table.php");
 			<th>Gender</th>
 			<th>Designation</th>
 			<th>Qualification</th>
-			<th>Experiance</th>
+			<th>Experience</th>
 			<th>Date Of Hire</th>
 			<th>Pay Rate</th>
 		</tr>
@@ -55,20 +52,35 @@ include("Table.php");
 
 			while($row = $result->fetch_assoc()) {
 				echo "<tr>";
-				echo "<td>" . $row["eid"]. "</td>";
-				echo "<td>" . $row["fname"]. "</td>";
-				echo "<td>" . $row["lname"]. "</td>";
-				echo "<td>" . $row["MobileNumber"]. "</td>";
-				echo "<td>" . $row["EmailID"]. "</td>";
+				echo "<td>" . $row["E_ID"]. "</td>";
+				echo "<td>" . $row["First_Name"]. "</td>";
+				echo "<td>" . $row["Last_Name"]. "</td>";
+				echo "<td>" . $row["Mobile_Number"]. "</td>";
+				echo "<td>" . $row["Email_ID"]. "</td>";
 				echo "<td>" . $row["DOB"]. "</td>";
 				echo "<td>" . $row["Gender"]. "</td>";
 				echo "<td>" . $row["Designation"]. "</td>";
 				echo "<td>" . $row["Qualification"]. "</td>";
-				echo "<td>" . $row["DateofHire"]. "</td>";
-				echo "<td>" . $row["PayRate"]. "</td>";
+				echo "<td>" . $row["Experience"]. "</td>";
+				echo "<td>" . $row["Date_of_Hire"]. "</td>";
+				echo "<td>" . $row["Pay_Rate"]. "</td>";
 			}
 		} else {	
 			echo "0 results";
 		}
 		$conn->close();
 		?>
+		
+		</table>
+		
+		<button onclick="myFunction()">Print this page</button>
+		
+		<script>
+		function myFunction() {
+			window.print();
+		}
+	</script>
+	
+	</body>
+</html>
+	

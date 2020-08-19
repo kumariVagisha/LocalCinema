@@ -1,5 +1,68 @@
 <!--php-->
-<?php include('Header.php')?>
+
+<?php include("Header.php");
+
+include("Connect.php");
+
+$sid = null;
+
+if (isset($_POST['BtnSearch']))
+{
+	$stid = $_POST['S_ID'];
+	$sql = "select * from screens where S_ID='$sid'";
+
+	$result = $conn->query($sql);
+			
+	if($result -> num_rows>0)
+	{
+		$row = $result->fetch_assoc();
+	
+	        $sid = $row['S_ID'];
+            
+	}
+	else
+		echo "<script>alert('No records found!');</script>";
+}
+
+if(isset($_POST['Submit']))
+{
+		
+	$sql = "UPDATE screens SET  where S_ID = ?" ;
+
+
+
+    $result = $conn->prepare($sql);
+	$result-> bind_param('s',$sid);
+
+    $stid = $_POST['ST_ID'];
+	$SeatNumber = $_POST['Seat_Number'];
+    $Category = $_POST['Category'];
+    $Price = $_POST['Price'];
+    $Status = $_POST['Status'];
+	
+	
+	//echo $mid;
+	
+
+
+if($result->execute()===true)
+{
+	echo "Details has been updated!";	
+}
+else
+{
+	echo $result->error;
+}
+
+    //}
+$result->close();
+}
+
+$conn->close();
+
+
+
+?>
 
 <!DOCTYPE html>
 
@@ -13,9 +76,10 @@
 			
 			    h1.Style1{
 	                margin-left:570px;
-	                color:#00356B;
+	                color:#D4E6F1;
                     margin-top:70px;
-					
+				}
+				
 	        </style>
 			
 	    </head>
@@ -46,8 +110,8 @@
 					
                     <br><br>
 					
-                    <input type="submit" value="Cancel" "margin-left:20%">
+                    <input type="reset" name="Reset" value="Reset" style="margin-left:45%">
 					
-                    <input type="submit" value="Update Screen" "margin-left:50%">
+                    <input type="submit" name="Submit" value="Update Details">
 					
-                    <input type="submit" value="Delete" "margin-left:5%">
+                    <input type="submit" name="Submit" value="Delete">

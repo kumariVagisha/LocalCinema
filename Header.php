@@ -72,33 +72,57 @@
 		</header>
 		<hr>
 			<ul>
+			
+			    <li> 
+                    <div>
+                          <a href="Homepage1.php">Home</a>
+                    </div>
+                </li>
+				
 				<li class ="dropdown">
-					<a href="javascript:void(0)"class="dropbtn">Movies</a>
+					<a href="javascript:void(0)"class="dropbtn">Movie</a>
 					<div class="dropdown-content">
 						<a href="AddMovies.php">Add</a>
 						<a href="UpdateSearchandDeleteMovies.php">Update Search and Delete</a>
 					</div>
 				</li>
 				<li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Screens</a>
+                    <a href="javascript:void(0)" class="dropbtn">Screen</a>
                     <div class="dropdown-content">
                         <a href="AddScreens.php">Add</a>
                         <a href="UpdateSearchandDeleteScreens.php">Update Search and Delete</a>
 	                </div>
                 </li>
                 <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Seats</a>
+                    <a href="javascript:void(0)" class="dropbtn">Seat</a>
                     <div class="dropdown-content">
                         <a href="AddSeats.php">Add</a>
                         <a href="UpdateSearchandDeleteSeats.php">Update Search and Delete</a>
                     </div>
 	           </li>
+			   
+			   <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Show</a>
+                        <div class="dropdown-content">
+                            <a href="AddShow.php">Add</a>
+                            <a href="UpdateSearchandDeleteShow.php">Update Search and Delete</a>
+                        </div>
+                </li>
+				
+				<li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Theater</a>
+                        <div class="dropdown-content">
+                            <a href="AddTheater.php">Add</a>
+                            <a href="UpdateSearchandDeleteTheater.php">Update Search and Delete</a>
+                        </div>
+                </li>
+			   
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Customer</a>
-                    <div class="dropdown-content">
-                          <a href="AddCustomer.php">Add</a>
-                          <a href="UpdateSearchandDeleteCustomer.php">Update Search and Delete</a>
-                    </div>
+                        <div class="dropdown-content">
+                            <a href="AddCustomer.php">Add</a>
+                            <a href="UpdateSearchandDeleteCustomer.php">Update Search and Delete</a>
+                        </div>
                 </li>
 				<li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Ticket</a>
@@ -107,9 +131,29 @@
                           <a href="CancelTicket.php">Cancel</a>
                     </div>
                 </li>
-				<li> 
-                    <div>
-                          <a href="Report.php">Report</a>
+				
+				<li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Employee</a>
+                        <div class="dropdown-content">
+                            <a href="AddEmployees.php">Add</a>
+                            <a href="UpdateSearchandDeleteEmployees.php">Update Search and Delete</a>
+                        </div>
+                </li>
+				
+				<li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Reports</a>
+						<div class="dropdown-content">
+                            <a href="MovieList.php">Movie List</a>
+                            <a href="ScreenList.php">Screen List</a>
+							<a href="SeatList.php">Seat List</a>
+                            <a href="CustomerList.php">Customer List</a>
+							<a href="EmployeeList.php">Employee List</a>
+                            <a href="TicketList.php">Ticket List</a>
+							</div>
+						</li>
+							
+				
+                    </div>
                     </div>
                 </li>
             </ul>

@@ -2,7 +2,13 @@
 //------------- Generate Movie ID-------------
 
     include("Header.php");
-    include("connect.php");
+	
+	    $sid = null;
+		
+		function GenerateID() 
+			{
+	
+    include("Connect.php");
 
         $sql ="select S_ID from screens";
 
@@ -14,16 +20,39 @@
 		        $sid = $row["S_ID"];
 	        }
 	 
-	        $sid = substr($sid,1,4);
+	        $sid = substr($sid,1,3);
 	 
 	        $sid = $sid + 1;
 	 
-	        $sid = "S" . $sid;
+	        //$sid = "S" . $sid;
+			
+			if($sid<10)
+						
+						$sid = "S00" . $sid;
+						
+					elseif($sid<100)
+					
+						$sid = "S0" . $sid;
+					else
+						
+						$sid = "S" . $sid;
+						
+						
         }
  
  else
  {
-	$sid = "S" . "1001";
+	$sid = "S" . "001";
+	
+ }
+
+
+ return $sid;
+	
+	$conn->close();
+		
+		$sid = GenerateID();
+	
  }
 ?>
 
@@ -33,15 +62,16 @@
 	
 	    <head>
 		
-		    <title>Local Cinema | Add Screen</title>
+		    <title>Local Cinema | Add Screens</title>
 			
 			<style>
 			
 			    h1.Style1{
 	                margin-left:650px;
-	                color:#00356B;
+	                color:#D4E6F1;
                     margin-top:70px;
-				}	
+				}
+				
 	        </style>
 			
         </head>
@@ -61,16 +91,16 @@
                                 <label for="S_ID">S_ID </label>	
 	                        </td>
 						    <td width=67%>
-                                <input type="text" name="S_ID" placeholder="S_ID" value="<?php echo $sid;?>" readonly>
+                                <input type="text" name="S_ID" id="S_ID" placeholder="S_ID" value="<?php echo $sid;?>"readonly>
 	                        </td>
 						</tr>
 						
 				    </table>
 					
 					<br><br>
-                     <input type="submit" name="cancel" value="Cancel" "margin-left:35%">
+                     <input type="reset" name="Reset" value="Reset" style="margin-left:45%">
 									
-                    <input type="submit" name="submit" value="Add New Screen" "margin-right:30%">
+                    <input type="submit" name="Submit" value="Add New Screen">
   
                 </form>
         </body>
@@ -80,9 +110,9 @@
 
 <?php
 
-if(isset($_POST['submit']))
+if(isset($_POST['Submit']))
 {
-	include ('connect.php');
+	include ('Connect.php');
 	
 	    $sid = $_POST['S_ID'];
 	
@@ -101,5 +131,11 @@ if(isset($_POST['submit']))
 	}
 
 	$conn->close();
+	
+	$sid = GenerateID();
+	
+	echo "<script>document.getElementById('S_ID').value='$sid';</script>";
+
+	
 }
 ?>

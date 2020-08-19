@@ -1,5 +1,5 @@
 <?php
-include("Table.php");
+include("TableHeader.php");
 ?>
 
 <html>
@@ -20,13 +20,13 @@ include("Table.php");
 		tr:nth-child(even){background-color: #f2f2f2}
 
 		th {
-			background-color:#939D79;
+			background-color:#505050;
 			color: white;
 		}
 	</style>
 </head>
 <body>
-	<h2>Movie List</h2><br>
+	<h2 class="Style1">Movie's List</h2><br>
 	<input type="button" value="Home" id="btn" onclick="window.location.href='http://localhost:85/Homepage1.php'">
 
 	<table>
@@ -46,9 +46,9 @@ include("Table.php");
 			<th>Certificate</th>
 		</tr>
 		<?php
-		include("connect.php");
+		include("Connect.php");
 
-		$sql = "SELECT * FROM Customer";
+		$sql = "SELECT * FROM movies";
 		$result = $conn->query($sql);
 
 
@@ -56,17 +56,17 @@ include("Table.php");
 
 			while($row = $result->fetch_assoc()) {
 				echo "<tr>";
-				echo "<td>" . $row["mid"]. "</td>";
+				echo "<td>" . $row["M_ID"]. "</td>";
 				echo "<td>" . $row["Title"]. "</td>";
 				echo "<td>" . $row["Genre"]. "</td>";
-				echo "<td>" . $row["ReleasingDate"]. "</td>";
+				echo "<td>" . $row["Releasing_Date"]. "</td>";
 				echo "<td>" . $row["Language"]. "</td>";
-				echo "<td>" . $row["RunningTime"]. "</td>";
+				echo "<td>" . $row["Running_Time"]. "</td>";
 				echo "<td>" . $row["Cast"]. "</td>";
 				echo "<td>" . $row["Director"]. "</td>";
 				echo "<td>" . $row["Producer"]. "</td>";
-				echo "<td>" . $row["MusicDirector"]. "</td>";
-				echo "<td>" . $row["ProductionHouse"]. "</td>";
+				echo "<td>" . $row["Music_Director"]. "</td>";
+				echo "<td>" . $row["Production_House"]. "</td>";
 				echo "<td>" . $row["Synopsis"]. "</td>";
 				echo "<td>" . $row["Certificate"]. "</td>";
 			    echo "</tr>";
@@ -76,3 +76,17 @@ include("Table.php");
 		}
 		$conn->close();
 		?>
+		
+		</table>
+		
+		<button onclick="myFunction()">Print this page</button>
+		
+		<script>
+		function myFunction() {
+			window.print();
+		}
+	</script>
+	
+	</body>
+</html>
+	

@@ -1,36 +1,105 @@
 <!DOCTYPE html>
     <?php
         include ("Header.php");
+		
+		include("Connect.php");
+		
+		$SerialNo = null;
+	$TheaterName = null;
+	$Address = null;
+	$Movie = null;
+	$Certificate = null;
+	$Date = null;
+	$Day = null;
+	$StartingTime = null;
+	$ScreenNo = null;
+	$SeatNo = null;
+	$TicketCost = null;
+	$NetValue = null;
+	$CGST = null;
+	$SGST = null;
+	$TicketNo = null;
+	$InvoiceNo = null;
+
+                    if (isset($_POST['BtnSearch']))
+            {
+	            $SerialNo = $_POST['Serial_No'];
+				
+	            $sql = "select * from ticket where Serial_No='$SerialNo'";
+
+	            $result = $conn->query($sql);
+			
+	            if($result -> num_rows>0)
+	            {
+					
+		            $row = $result->fetch_assoc();
+	
+		$SerialNo = $row['Serial_Number'];
+	$TheaterName = $row['Theater_Name'];
+	$Address = $row['Address'];
+	$Movie = $row['Movie'];
+	$Certificate = $row['Certificate'];
+	$Date = $row['Date'];
+	$Day = $row['Day'];
+	$StartingTime = $row['Starting_Time'];
+	$ScreenNo = $row['Screen_No'];
+	$SeatNo = $row['Seat_No'];
+	$TicketCost = $row['Ticket_Cost'];
+	$NetValue = $row['Net_Value'];
+	$CGST = $row['CGST'];
+	$SGST = $row['SGST'];
+	$TicketNo = $row['Ticket_No'];
+	$InvoiceNo =$row['Invoice_No'];		             
+					 
+	            }
+	        else
+				
+	    echo "<script>alert('No records found!');</script>";
+		
+            }
+    $conn->close();
+		
     ?>
         <html lang="en">
            <head>
-                <title>Local Cinema |Cancel Ticket</title>
-		        <style>
-                    td,th {width:200px}
-                </style>
+                <title>Local Cinema | Cancel Ticket</title>
+				
+				<style>
+			
+			    h1.Style1{
+	                margin-left:620px;
+	                color:#D4E6F1;
+                    margin-top:70px;
+				}
+				
+	        </style>
+				
             </head>
             <body>
-	    <h2 class="Style2">Cancel Ticket</h2>
+	    <h1 class="Style1">Cancel Ticket</h1>
 
 	    <!--Form Design-->
 	    <form action="#" method="POST">
 	 
-	        <table border="1">
+	        <table width=100%>
 	           <tr>
-	              <td class="form">
-                        <label for="SerialNo">SerialNo</label>
+	              <td width=40% >
+                        <label for="Serial_No">Serial No</label>
                   </td>
-  	              <td class="form">
-                        <input type="Text" name="SerialNo" placeholder="Serial No.">   
+  	              <td width=32%>
+                        <input type="Text" name="Serial_No" placeholder="Serial No.">   
                     </td>
+					<td width=28%>
+			                    <button type="submit" name="BtnSearch">Search</button>
+			                </td>
 				</tr>
 					
 			    <tr>
 					<td class="form">
-                        <label for="TheaterName">Theater Name</label>
+                        <label for="Theater_Name">Theater Name</label>
                     </td>
 					<td class="form">
-                        <input type="text" name="TheaterName" placeholder="Theater Name">
+                        <input type="text" name="Theater_Name" placeholder="Theater Name">
                     </td>
                 </tr>
 
@@ -64,15 +133,6 @@
 				</select>
 			</td>
 		</tr>
-	
-					<td class="form">
-  
-                        <label for="Day">Day</label>
-					</td>
-                    <td class="form">					
-				        <input type="text" name="Day"placeholder="Day">
-				    </td>
-					</tr>
 					
 				<tr>
 					<td class="form">
@@ -84,31 +144,40 @@
 				    </td>
 				</tr>
 				
+				<tr>
+					<td class="form">
+  
+                        <label for="Day">Day</label>
+					</td>
+                    <td class="form">					
+				        <input type="text" name="Day"placeholder="Day">
+				    </td>
+					</tr>
 				
 			    <tr>
 					<td class="form">
-                        <label  for="StartingTime">Starting Time</label>
+                        <label  for="Starting_Time">Starting Time</label>
 					</td>
 					<td class="form">
-                        <input type="time" name="StartingTime" placeholder="StartingTime">
+                        <input type="time" name="Starting_Time" placeholder="Starting_Time">
 					</td>
 				</tr>
                 
                 <tr>
 					<td class="form">
-                        <label for="ScreenNo">Screen No</label>
+                        <label for="Screen_No">Screen No</label>
 					</td>
 					<td class="form">
-                       <input type="Text" name="ScreenNo" placeholder="Screen No">
+                       <input type="Text" name="Screen_No" placeholder="Screen No">
 					</td>
 				</tr>
 					
 				<tr>
                     <td class="form">
-                        <label for="SeatNo.">Seat No</label>
+                        <label for="Seat_No">Seat No</label>
 					</td>
 					<td class="form">
-                        <input type="Text" name="SeatNo" placeholder="Seat No">
+                        <input type="Text" name="Seat_No" placeholder="Seat No">
 					</td>
 			    </tr>
                  
@@ -117,7 +186,7 @@
                         <label for="Ticket Cost">Ticket Cost</label>
                     </td>
 					<td class="form">
-                    <input type="Text" name="TicketCost" placeholder="Ticket Cost">
+                    <input type="Text" name="Ticket_Cost" placeholder="Ticket Cost">
                     </td>
                 </tr>
 
@@ -142,36 +211,34 @@
                 
 				<tr>
 					<td class="form">
-                        <label for="NetValue">Net Value</label>
+                        <label for="Net_Value">Net Value</label>
 					</td>
 					<td class="form">
-                        <input type="Text" name="NetValue" placeholder="NetValue">
+                        <input type="Text" name="Net_Value" placeholder="Net_Value">
 					</td>
                 </tr>
 				
                 <tr>
                     <td class="form">					
-                        <label for="TicketNo">TicketNo</label>
+                        <label for="Ticket_No">TicketNo</label>
 					</td>
 					<td class="form">
-                        <input type="Text" name="TicketNo" placeholder="Ticket No.">
+                        <input type="Text" name="Ticket_No" placeholder="Ticket No">
                     </td>
 			    </tr>
 					
 					
 				<tr>
 					<td class="form">
-                        <label for="InvoiceNo">Invoice No</label>
+                        <label for="Invoice_No">Invoice No</label>
 		            <td class="form">		
-                        <input type="Text" name="InvoiceNo" placeholder="Invoice No.">
+                        <input type="Text" name="Invoice_No" placeholder="Invoice No.">
                     </td>
                 </tr>	
 
 		    </table>	
-  
-  
-  <input type="submit" value="Reset" name="submit">
-  <input type="submit" value="Cancel Ticket" name="submit">
+
+  <input type="submit" value="Cancel Ticket" name="submit" style="margin-left:50%">
   
   
 </form> 
@@ -181,44 +248,4 @@
 
 
 
-<!-------------------------------------------------------------------->
-
-<?php
-
-if(isset($_POST['submit']))
-{
-	include ('connect.php');
-	
-	$SerialNo = $_POST['SerialNo'];
-	$TheaterName = $_POST['TheaterName'];
-	$Address = $_POST['Address'];
-	$Movie = $_POST['Movie'];
-	$Certificate = $_POST['Certificate'];
-	$Day = $_POST['Day'];
-	$Date = $_POST['Date'];
-	$StartingTime = $_POST['StartingTime'];
-	$ScreenNo = $_POST['ScreenNo'];
-	$SeatNo = $_POST['SeatNo'];
-	$TicketCost = $_POST['TicketCost'];
-	$NetValue = $_POST['NetValue'];
-	$CGST = $_POST['CGST'];
-	$SGST = $_POST['SGST'];
-	$TicketNo = $_POST['TicketNo'];
-	$InvoiceNo = $_POST['InvoiceNo'];
-	
-	
-	$sql = "INSERT INTO ticketbooking(SerialNo) values('$SerialNo')";
-		
-
-	if ($conn->query($sql) === TRUE) {
-		echo "New Ticket Booked successfully";
-	} else {
-		echo "Error: " . $sql . "<br>" . $conn->error;
-	}
-
-	$conn->close();
-}
-?>
-
-</body>
-</html>
+<!------------------------------------------------------------------

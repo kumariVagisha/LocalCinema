@@ -1,4 +1,4 @@
-hr{
+   hr{
 	border-top:1px solid grey;
 }
 
@@ -18,14 +18,14 @@ img.logo{
   vertical-align:top;
 }
 	
-}
+
 h2.Style2{
 	margin-left:560px;
-	color:#00356B;
+	color:#D4E6F1;
 	margin-top:100px;
 }
 	
-input[type=text]{
+input[type=text],[type=email]{
 	float:center;
 	padding:13px;
 	border:1px solid #ccc;
@@ -44,7 +44,28 @@ input[type=date]{
 	width:554px;	
 }
 
-select{
+input[type=address]{
+	float:center;
+	padding:13px;
+	border:1px solid #ccc;
+	font-size:19px;
+	border-radius:4px;
+	height:10px;
+	width:554px;	
+}
+
+input[type=number]{
+	float:center;
+	padding:13px;
+	border:1px solid #ccc;
+	font-size:19px;
+	border-radius:4px;
+	height:10px;
+	width:554px;	
+}
+
+
+/*select{
 	float:center;
 	padding:13px;
 	border:1px solid #ccc;
@@ -52,7 +73,7 @@ select{
 	border-radius:4px;
 	height:10px;
 	width:554px;
-}
+}*/
 
 textarea{
 	float:center;
@@ -60,9 +81,10 @@ textarea{
 	border:1px solid #ccc;
 	font-size:19px;
 	border-radius:4px;
-	width:554px;	
+	width:554px;
+    resize:none;	
 }
-input[type="time"]{
+input[type=time]{
 	float:center;
 	padding:13px;
 	border:1px solid #ccc;
@@ -97,6 +119,23 @@ input[type=submit]{
   display:inline-block;
 }
 
-input[type=submit]:hover{
-  background-color:#24a0ed;
+input[type=reset]{
+  background-color: #D01C1FFF;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  float:center;
+  display:inline-block;
 }
+
+
+input[type=submit]:hover{
+  background-color:#505050;
+}
+
+input[type=reset]:hover{
+  background-color:#505050;
+}
+

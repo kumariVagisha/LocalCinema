@@ -1,5 +1,5 @@
 <?php
-include("Table.php");
+include("TableHeader.php");
 ?>
 
 <html>
@@ -17,10 +17,14 @@ include("Table.php");
 			padding: 8px;
 		}
 
-		tr:nth-child(even){background-color: #f2f2f2}
+		tr:nth-child(even){
+			background-color:#f2f2f2;
+			color: black
+		}
+		tr:nth-child(odd){color: white}
 
 		th {
-			background-color:#939D79;
+			background-color:#505050;
 			color: white;
 		}
 	</style>
@@ -40,9 +44,9 @@ include("Table.php");
 			<th>Gender</th>
 		</tr>
 		<?php
-		/*include("connect.php");
+		include("connect.php");
 
-		$sql = "SELECT * FROM Customer";
+		$sql = "SELECT * FROM customer";
 		$result = $conn->query($sql);
 
 
@@ -50,16 +54,30 @@ include("Table.php");
 
 			while($row = $result->fetch_assoc()) {
 				echo "<tr>";
-				echo "<td>" . $row["cid"]. "</td>";
-				echo "<td>" . $row["fname"]. "</td>";
-				echo "<td>" . $row["lname"]. "</td>";
-				echo "<td>" . $row["MobileNumber"]. "</td>";
-				echo "<td>" . $row["EmailID"]. "</td>";
+				echo "<td>" . $row["C_ID"]. "</td>";
+				echo "<td>" . $row["First_Name"]. "</td>";
+				echo "<td>" . $row["Last_Name"]. "</td>";
+				echo "<td>" . $row["Mobile_Number"]. "</td>";
+				echo "<td>" . $row["Email_ID"]. "</td>";
 				echo "<td>" . $row["DOB"]. "</td>";
 				echo "<td>" . $row["Gender"]. "</td>";
 			}
 		} else {
 			echo "0 results";
 		}
-		$conn->close();*/
+		$conn->close();
 		?>
+		
+		</table>
+		
+		<button onclick="myFunction()">Print this page</button>
+		
+		<script>
+		function myFunction() {
+			window.print();
+		}
+	</script>
+	
+	</body>
+</html>
+		

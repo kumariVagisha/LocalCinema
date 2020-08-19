@@ -1,5 +1,5 @@
 <?php
-include("Table.php");
+include("TableHeader.php");
 ?>
 <html>
 <head>
@@ -17,13 +17,13 @@ include("Table.php");
 		tr:nth-child(even){background-color: #f2f2f2}
 
 		th {
-			background-color:#939D79;
+			background-color:#505050;
 			color: white;
 		}
 	</style>
 </head>
 <body>
-	<h2>Ticket List</h2><br>
+	<h2>Ticket's List</h2><br>
 	<input type="button" value="Home" id="btn" onclick="window.location.href='http://localhost:85/Homepage1.php'">
 
 	<table>
@@ -82,3 +82,17 @@ include("Table.php");
 		}
 		$conn->close();
 		?>
+		
+		</table>
+		
+		<button onclick="myFunction()">Print this page</button>
+		
+		<script>
+		function myFunction() {
+			window.print();
+		}
+	</script>
+	
+	</body>
+</html>
+		

@@ -4,30 +4,27 @@
 	margin:0;
 	box-sizing:border-box;
 }
-img.logo {
-  width:150px;
-  height:10px;
-  vertical-align:top;
+
 }
-/*body{
+body{
 	background-image: url("Theatre.jpg");
     background-repeat: no-repeat, repeat;
     background-color: #cccccc;
 	background-position:center;
 	box-sizing:border-box;
 	font-family:Arial,Helvetica,sans-serif;
-}*/
+}
 .menu-bar{
-	background:blue;
+	background:#E74C3C;
 	text-align:center;
 }
 .menu-bar ul{
 	display:inline-flex;
 	list-style:none;
-	color:blue;
+	color:white;
 }
 .menu-bar ul li{
-	width:120px;
+	width:220px;
 	margin:15px;
 }
 .menu-bar ul li a{
@@ -38,9 +35,18 @@ img.logo {
 	background:grey;
 	border-radius:3px;
 }
+/*.menu-bar .fa{
+	margin-right:8px;
+}*/
+/*header{
+	background-color:white;
+	padding:10px;
+	font-size:30px;
+	margin-top:none;
+}
 .sub-menu-1{
 	display:none;   
-}
+}*/
 .menu-bar ul li:hover.sub-menu-1{
 	display:block;
 	position:absolute;
@@ -56,7 +62,7 @@ img.logo {
 	width:150px;
 	padding:10px;
 	border-bottom:1px dotted #fff;
-	background:tranparent;
+	background:transparent;
 	border-radius:0;
 	text-align:left;
 }

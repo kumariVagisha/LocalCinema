@@ -1,21 +1,4 @@
-<?php
-	/*include("connect.php");
-	$name = $_POST['Name'];
-	$email = $_POST['Email'];
-	$password = $_POST['Password'];
-	$confirmPassword= $_POST['Confirm_Password'];
-	
-	$sql = "Select * from newuser where Name='$name',Email='$email',Password='$password','$ConfirmPassword'";
 
-	$result = $conn->query($sql);
-
-	if($result->num_rows <= 0)
-	{
-		header("Location: registrationform.php");
-	}
-
-	$conn->close();*/
-?>
 
 <!DOCTYPE html>
  <html lang="en">
@@ -38,16 +21,26 @@
 
       <td>
        <h1 style="color:#0086b3">Log In</h1>
-       <div class="transbox">
+	   
+        <div class="input-group">
+		
+         <input type="text" placeholder="Username" name="Username" required><br>
+        </div>
+		
+		<div class="input-group">
 
-         <input type="text" placeholder="Username" name="Username" required><br/><br>
-
-
-         <input type="password" placeholder="Password" name="Password" required><br/><br>
-
-         <button type="submit" name="login">Login</button><br/><br/>
-
-		       
+         <input type="password" placeholder="Password" name="Password" required><br>
+        
+		</div>
+		
+		<div class="input-group">
+		
+         <button type="submit" name="login">Login</button><br>
+        </div>																
+		
+		</td>
+	</tr>
+</table>		       
 		</form>
 	</body>
 </html>
@@ -68,12 +61,11 @@ if(isset($_POST['login']))
 	echo $sql;
 
 	$result = $conn->query($sql);
-	//$num = mysqli_num_rows($result);
 
 	if($result->num_rows > 0)
 	{
         $_SESSION["uname"]= $username;
-		//$row = $result->fetch_assoc();
+
 		echo "<script>window.location.href='Homepage1.php'</script>";
 	}
 
